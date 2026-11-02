@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TeamBoard — Collaborative Tasks</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><header class="top"><div class="brand"><span class="logo">▦</span><div><b>TeamBoard</b><small>Work together, in real time</small></div></div>
+<div class="selectors"><label>Signed in as<select id="user"></select></label><label>Organization<select id="org"></select></label><label>Branch<select id="tenant"></select></label></div>
+<div class="live"><span class="dot"></span><span id="liveStatus">Connecting…</span></div></header>
+<main><section class="intro"><div><p class="eyebrow">WORKSPACE / KANBAN</p><h1 id="boardTitle">Product Delivery</h1><p class="muted">A shared view of work, priorities, and progress.</p></div><button id="newTask" class="primary">＋ New task</button></section>
+<div class="toolbar"><div><b id="taskCount">0 tasks</b><span class="muted"> · Drag cards between columns</span></div><div class="presence" id="presence"></div></div>
+<section id="board" class="board"></section>
+<section class="below"><div class="panel"><h3>Recent activity</h3><div id="activity" class="activity"></div></div><div class="panel"><h3>How live sync works</h3><p class="muted">Updates are broadcast only to users authorized for this branch. Version numbers protect against stale edits.</p><div class="statusline"><span class="dot"></span> Tenant-scoped WebSocket</div><div class="statusline"><span class="dot purple"></span> Versioned task updates</div></div></section>
+</main>
+<div class="modal hidden" id="modal"><form id="taskForm" class="dialog"><button type="button" id="closeModal" class="close">×</button><p class="eyebrow">TASK DETAILS</p><h2>Create a task</h2><label>Task title<input id="taskTitle" required maxlength="200" placeholder="e.g. Prepare sprint review"></label><label>Description<textarea id="taskDescription" rows="4" placeholder="Add context, acceptance criteria…"></textarea></label><label>Column<select id="taskColumn"></select></label><div class="actions"><button type="button" id="cancel" class="secondary">Cancel</button><button class="primary" type="submit">Create task</button></div></form></div>
+<div class="toast" id="toast"></div><script src="/static/app.js"></script></body></html>
